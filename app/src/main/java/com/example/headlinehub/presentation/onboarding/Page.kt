@@ -22,7 +22,7 @@ val pages = listOf(
     ),
     Page(
         title = "Save and Access Anytime",
-        description = "Found an article you love? Save it for later!\nTap on the bookmark icon on the top of your screen to save an article for later.",
+        description = "Found an article you love? Save it for later!",
         image = R.drawable.onboarding3
     )
 )
