@@ -38,12 +38,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             HeadlineHubTheme {
                 Box(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
-                    val viewModel: OnBoardingViewModel = hiltViewModel()
-                    OnBoardingScreen(
-                        event = {
-                            viewModel.onEvent(it)
-                        }
-                    )
+
                 }
             }
         }
