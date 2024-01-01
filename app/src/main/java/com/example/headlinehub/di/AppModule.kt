@@ -3,9 +3,9 @@ package com.example.headlinehub.di
 import android.app.Application
 import com.example.headlinehub.data.manager.LocalUserManagerImpl
 import com.example.headlinehub.domain.manager.LocalUserManager
-import com.example.headlinehub.domain.usecases.AppEntryUseCases
-import com.example.headlinehub.domain.usecases.ReadAppEntry
-import com.example.headlinehub.domain.usecases.SaveAppEntry
+import com.example.headlinehub.domain.usecases.app_entry.AppEntryUseCases
+import com.example.headlinehub.domain.usecases.app_entry.ReadAppEntry
+import com.example.headlinehub.domain.usecases.app_entry.SaveAppEntry
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
