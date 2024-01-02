@@ -56,7 +56,7 @@ fun handlePagingResult(
         }
 
         error != null -> {
-            //TODO: EmptyScreen composable here.
+            EmptyScreen(error)
             false
         }
 
