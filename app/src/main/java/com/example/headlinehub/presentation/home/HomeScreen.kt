@@ -1,23 +1,31 @@
 package com.example.headlinehub.presentation.home
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.unit.sp
 import androidx.paging.compose.LazyPagingItems
 import com.example.headlinehub.R
 import com.example.headlinehub.domain.model.Article
 import com.example.headlinehub.presentation.Dimens.MediumPadding1
+import com.example.headlinehub.presentation.common.ArticlesList
+import com.example.headlinehub.presentation.common.SearchBar
+import com.example.headlinehub.presentation.navgraph.Route
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
     articles: LazyPagingItems<Article>,
@@ -43,14 +51,38 @@ fun HomeScreen(
             .padding(top = MediumPadding1)
             .statusBarsPadding()
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_logo_foreground),
-            contentDescription = null,
-            modifier = Modifier.padding(horizontal = MediumPadding1)
+
+        SearchBar(
+            modifier = Modifier.padding(horizontal = MediumPadding1),
+            text = "",
+            readOnly = true,
+            onValueChange = {},
+            onClick = {
+                navigate(Route.SearchScreen.route)
+            },
+            onSearch = {}
         )
-        
+
         Spacer(modifier = Modifier.height(MediumPadding1))
 
-        // TODO: Search bar composable here.
+        Text(
+            text = titles,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = MediumPadding1)
+                .basicMarquee(),
+            fontSize = 12.sp,
+            color = colorResource(id = R.color.placeholder)
+        )
+
+        Spacer(modifier = Modifier.height(MediumPadding1))
+
+        ArticlesList(
+            modifier = Modifier.padding(horizontal = MediumPadding1),
+            articles = articles,
+            onClick = {
+                navigate(Route.DetailsScreen.route)
+            }
+        )
     }
 }
