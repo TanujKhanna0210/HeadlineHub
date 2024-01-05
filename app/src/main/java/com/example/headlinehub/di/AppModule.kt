@@ -14,6 +14,7 @@ import com.example.headlinehub.domain.usecases.app_entry.AppEntryUseCases
 import com.example.headlinehub.domain.usecases.app_entry.ReadAppEntry
 import com.example.headlinehub.domain.usecases.app_entry.SaveAppEntry
 import com.example.headlinehub.domain.usecases.news.DeleteArticle
+import com.example.headlinehub.domain.usecases.news.GetArticle
 import com.example.headlinehub.domain.usecases.news.GetArticles
 import com.example.headlinehub.domain.usecases.news.GetNews
 import com.example.headlinehub.domain.usecases.news.NewsUseCases
@@ -75,7 +76,8 @@ object AppModule {
             searchNews = SearchNews(newsRepository),
             upsertArticle = UpsertArticle(newsDao),
             deleteArticle = DeleteArticle(newsDao),
-            getArticles = GetArticles(newsDao)
+            getArticles = GetArticles(newsDao),
+            getArticle = GetArticle(newsDao)
         )
     }
 
